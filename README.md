@@ -31,9 +31,9 @@
     A Reddit Client that allows you to easily browse the animal and pet related subreddits all from one easy web app.
     <br />
     <br />
-    <a href="https://github.com/scienceappreciation/pettit/issues">Report Bug</a>
+    <a href="https://github.com/scienceappreciation/pettit-client/issues">Report Bug</a>
     ·
-    <a href="https://github.com/scienceappreciation/pettit/issues">Request Feature</a>
+    <a href="https://github.com/scienceappreciation/pettit-client/issues">Request Feature</a>
   </p>
 </div>
 
@@ -99,11 +99,11 @@ To get the website running on your local machine follow these steps below!
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/scienceappreciation/pettit.git
+   git clone https://github.com/scienceappreciation/pettit-client.git
    ```
 2. Go into the cloned repo
     ```sh 
-    cd pettit
+    cd pettit-client
     ```
 3. Install node_modules
     ```sh
@@ -149,7 +149,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Cole - colehale059@gmail.com
 
-Project Link: [https://github.com/scienceappreciation/pettit](https://github.com/scienceappreciation/pettit)
+Project Link: [https://github.com/scienceappreciation/pettit-client](https://github.com/scienceappreciation/pettit-client)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -167,16 +167,16 @@ Project Link: [https://github.com/scienceappreciation/pettit](https://github.com
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/scienceappreciation/pettit.svg?style=for-the-badge
-[contributors-url]: https://github.com/scienceappreciation/pettit/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/scienceappreciation/pettit.svg?style=for-the-badge
-[forks-url]: https://github.com/scienceappreciation/pettit/network/members
-[stars-shield]: https://img.shields.io/github/stars/scienceappreciation/pettit.svg?style=for-the-badge
-[stars-url]: https://github.com/scienceappreciation/pettit/stargazers
-[issues-shield]: https://img.shields.io/github/issues/scienceappreciation/pettit.svg?style=for-the-badge
-[issues-url]: https://github.com/scienceappreciation/pettit/issues
-[license-shield]: https://img.shields.io/github/license/scienceappreciation/pettit.svg?style=for-the-badge
-[license-url]: https://github.com/scienceappreciation/pettit/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/scienceappreciation/pettit-client.svg?style=for-the-badge
+[contributors-url]: https://github.com/scienceappreciation/pettit-client/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/scienceappreciation/pettit-client.svg?style=for-the-badge
+[forks-url]: https://github.com/scienceappreciation/pettit-client/network/members
+[stars-shield]: https://img.shields.io/github/stars/scienceappreciation/pettit-client.svg?style=for-the-badge
+[stars-url]: https://github.com/scienceappreciation/pettit-client/stargazers
+[issues-shield]: https://img.shields.io/github/issues/scienceappreciation/pettit-client.svg?style=for-the-badge
+[issues-url]: https://github.com/scienceappreciation/pettit-client/issues
+[license-shield]: https://img.shields.io/github/license/scienceappreciation/pettit-client.svg?style=for-the-badge
+[license-url]: https://github.com/scienceappreciation/pettit-client/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/cole-hale
 [Firefox-url]: https://www.mozilla.org/en-US/firefox/new/
