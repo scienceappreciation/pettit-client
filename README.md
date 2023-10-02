@@ -69,7 +69,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-### Features & Plans
 View the [Roadmap](Roadmap.md) to see the expected features, requirements and design notes.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
