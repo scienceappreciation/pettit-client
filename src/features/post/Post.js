@@ -1,6 +1,7 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
-function Post({title, body, flares, author, upvotes, comments, timestamp, sub}) {
+function Post() {
 
     function renderComments(elements) {
         let result = [];
@@ -10,20 +11,24 @@ function Post({title, body, flares, author, upvotes, comments, timestamp, sub}) 
         return result;
     }
 
+    // TODO: Configure Store
+
+    const { id } = useParams();
+
     return (
         <article className='border-container'>
-            <h2>{title}</h2>
+            <h2>title</h2>
             <ul className='meta-container'>
                 <li>
                     <div className='sub-meta'>
-                        {sub}
-                        {timestamp}
-                        {`by ${author}`}
+                        sub
+                        timestamp
+                        {`by author`}
                     </div>
                 </li>
                 <li>
                     <img src='REPLACE-ME' alt="upvotes " />
-                    {upvotes}
+                    upvotes
                 </li>
                 <li>
                     <a href="#">Share</a>
@@ -31,11 +36,11 @@ function Post({title, body, flares, author, upvotes, comments, timestamp, sub}) 
             </ul>
             <div className='border-container'>
                 <ul className='flare-container'>
-                    {flares}
+                    flares
                 </ul>
-                {body}
+                body
             </div>
-            {renderComments(comments)}
+            comments
         </article>
     );
 }

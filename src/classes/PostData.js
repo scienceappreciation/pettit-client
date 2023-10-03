@@ -127,6 +127,10 @@ class PostData {
         return this.data.subreddit_name_prefixed;
     }
 
+    get subreddit() {
+        return this.data.subreddit;
+    }
+
     get created_utc() {
         return this.data.created_utc;
     }
@@ -156,6 +160,10 @@ class PostData {
           text: this.data.selftext_html || "",
           image_src: this.data.url || ""
         };
+    }
+
+    get id() {
+        return this.data.id;
     }
 
 
