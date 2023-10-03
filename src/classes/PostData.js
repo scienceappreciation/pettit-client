@@ -29,6 +29,7 @@ class PostData {
         this.data.link_flair_text_color = data.link_flair_text_color || "";
         this.data.upvote_ratio = data.upvote_ratio || 0;
         this.data.author_flair_background_color = data.author_flair_background_color || "";
+        this.data.author_fullname = data.author_fullname || null;
         this.data.subreddit_type = data.subreddit_type || "";
         this.data.ups = data.ups || 0;
         this.data.total_awards_received = data.total_awards_received || 0;
@@ -116,6 +117,47 @@ class PostData {
         this.data.media = data.media || null;
         this.data.is_video = data.is_video || false;
     }
+
+    get subreddit_id() {
+        return this.data.subreddit_id;
+    }
+
+    get subreddit_name_prefixed() {
+        return this.data.subreddit_name_prefixed;
+    }
+
+    get created_utc() {
+        return this.data.created_utc;
+    }
+
+    get author() {
+        return this.data.author;
+    }
+
+    get upvotes() {
+        return this.data.ups;
+    }
+
+    get flare_background_color() {
+        return this.data.link_flair_background_color;
+    }
+
+    get flare_text_color() {
+        return this.data.link_flair_text_color;
+    }
+
+    get title() {
+        return this.data.title;
+    }
+
+    get content() {
+        return {
+          text: this.data.selftext_html || "",
+          image_src: this.data.url || ""
+        };
+    }
+
+
 }
 
 export default PostData;

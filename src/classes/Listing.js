@@ -12,6 +12,10 @@ class Listing {
         this.data.geo_filter = data.geo_filter || null;
         this.data.children = data.children || [];
     }
+
+    get posts() {
+        return this.data.children;
+    }
 }
 
 export default Listing;
