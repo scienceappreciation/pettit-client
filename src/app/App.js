@@ -12,6 +12,8 @@ const posts = new Listing(JSON.stringify(frontPageResponse)).posts;
 
 // TODO: Set up routes
 
+// Mock Remaining Categories
+
 // TODO: Write CSS
 
 function App() {
