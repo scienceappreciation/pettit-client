@@ -4,7 +4,7 @@ import CategoryItem from './CategoryItem.js';
 function CategoryList() {
     return (
         <nav className='container'>
-            <CategoryItem icon="" sub="" />
+            <CategoryItem icon="https://www.redditinc.com/assets/images/site/reddit-logo.png" sub="/" label="Reddit" />
         </nav>
     );
 }

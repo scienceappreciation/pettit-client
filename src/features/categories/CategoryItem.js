@@ -1,10 +1,10 @@
 import React from 'react';
 
-function CategoryItem({ icon, sub }) {
+function CategoryItem({ icon, sub, label }) {
     return (
         <li>
             <img src={icon} alt={`${sub} icon`} role="presentation" />
-            <a href={`${sub}`}></a>
+            <a href={`${sub}`}>{label}</a>
         </li>
     );
 }
