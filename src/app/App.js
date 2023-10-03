@@ -8,7 +8,7 @@ import Footer from '../features/footer/Footer.js';
 import Listing from '../classes/Listing.js';
 import frontPageResponse from '../mockData/frontpage_response.json';
 
-const posts = new Listing(frontPageResponse).posts;
+const posts = new Listing(JSON.stringify(frontPageResponse)).posts;
 
 // TODO: Set up routes
 

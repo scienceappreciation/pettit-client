@@ -1,11 +1,12 @@
 /* This class serves as documentation for the Reddit JSON API and may not always be used within the app. */
+import PostData from './PostData.js';
 
 class Listing {
     constructor(json=JSON.stringify({ "kind": "Listing", "data": {} })) {
         const listing = JSON.parse(json);
         this.kind = listing.kind;
         const data = listing.data;
-
+        this.data = {};
         this.data.after = data || null;
         this.data.dist = data.dist || 0;
         this.data.modhash = data.modhash || "";
@@ -14,7 +15,11 @@ class Listing {
     }
 
     get posts() {
-        return this.data.children;
+        let posts = [];
+        for (const post of this.data.children) {
+            posts.push(new PostData(JSON.stringify(post)));
+        }
+        return posts;
     }
 }
 

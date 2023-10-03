@@ -1,5 +1,5 @@
 import React from 'react';
-import { PostPreview } from './PostPreview.js';
+import PostPreview from './PostPreview.js';
 
 function PostsContainer({ posts }) {
     function renderPosts() {

@@ -22,7 +22,7 @@ function Post({title, body, flares, author, upvotes, comments, timestamp, sub}) 
                     </div>
                 </li>
                 <li>
-                    <img src='REPLACE-ME' alt="upvotes" />
+                    <img src='REPLACE-ME' alt="upvotes " />
                     {upvotes}
                 </li>
                 <li>

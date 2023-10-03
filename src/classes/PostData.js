@@ -6,6 +6,7 @@ class PostData {
         const data = post.data;
 
         this.kind = post.kind || "";
+        this.data = {};
         this.data.approved_at_utc = data.approved_at_utc || null;
         this.data.subreddit = data.subreddit || "";
         this.data.selftext = data.selftext || "";
