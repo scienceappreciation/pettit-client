@@ -3,9 +3,14 @@ import './App.css';
 import Header from '../features/header/Header.js';
 import CategoryList from '../features/categories/CategoryList.js';
 import PostsContainer from '../features/post/PostsContainer.js';
-import Footer from '../features/footer/Footer.js'
+import Footer from '../features/footer/Footer.js';
+
+import Listing from '../classes/Listing.js';
 
 // TODO: Mock Data
+import frontPageResponse from '../mockData/frontpage_response.json';
+
+const posts = new Listing(frontPageResponse).posts;
 
 // TODO: Set up routes
 
@@ -16,7 +21,7 @@ function App() {
     <>
       <Header />
       <CategoryList />
-      <PostsContainer posts="" />
+      <PostsContainer posts={posts} />
       <Footer />
     </> 
   );
