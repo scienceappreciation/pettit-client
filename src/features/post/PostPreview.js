@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import './Post.css';
+
 function PostPreview({ title, body, author, upvotes, postId, subreddit }) {
     return (
-        <Link to={`/${subreddit}/post/${postId}`}>
+        <Link to={`/${subreddit}/post/${postId}`} className='post-preview'>
             <article className='border-container'>
                 <h2>{title}</h2>
                 <div className='border-container'>
@@ -19,7 +21,7 @@ function PostPreview({ title, body, author, upvotes, postId, subreddit }) {
                         {upvotes}
                     </li>
                     <li>
-                        <a href="#">Share</a>
+                        <a href="#" className='share-button'>Share</a>
                     </li>
                 </ul>
             </article>

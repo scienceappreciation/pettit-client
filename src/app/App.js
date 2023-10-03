@@ -33,8 +33,6 @@ const posts = {
   "Guineapigs": guineaPosts
 }
 
-// TODO: Write CSS
-
 function App() {
   const { subreddit } = useParams();
   

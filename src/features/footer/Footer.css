@@ -1,0 +1,11 @@
+.footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    background-color: #4C33B8;
+    text-align: center;
+    width: 96%;
+    height: 4rem;
+    color: white;
+}

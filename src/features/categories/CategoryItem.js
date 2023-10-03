@@ -1,14 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import './CategoryItem.css';
 
 function CategoryItem({ icon, sub, label }) {
     return (
-        <li>
-            <NavLink to={sub}>
+        <NavLink to={sub} className='container category-item'>
+            <li>
                 <img src={icon} alt={`${sub} icon `} role="presentation" />
-                {label}
-            </NavLink>
-        </li>
+                <span className='label'>{label}</span>
+            </li>
+        </NavLink>
     );
 }
 

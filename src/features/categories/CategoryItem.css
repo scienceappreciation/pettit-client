@@ -1,0 +1,19 @@
+.category-item {
+    display: inline-flex;
+    background-color: #9500BA;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.5s;
+}
+
+.category-item img {
+    width: 48px;
+    height: 48px;
+    clip-path: circle(50%);
+}
+
+.category-item:hover {
+    opacity: 0.85;
+}
