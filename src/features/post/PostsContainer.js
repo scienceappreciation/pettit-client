@@ -4,9 +4,9 @@ import PostPreview from './PostPreview.js';
 function PostsContainer({ posts }) {
     function renderPosts() {
         let result = [];
-        for (const post of posts) {
-            result.push(<PostPreview title={post.title} body={post.content} author={post.author} upvotes={post.upvotes}/>)
-        }
+        posts.forEach((post, index) => {
+            result.push(<PostPreview key={`post_${index}`} title={post.title} body={post.content} author={post.author} upvotes={post.upvotes}/>)
+        });
         return result;
     }
 
