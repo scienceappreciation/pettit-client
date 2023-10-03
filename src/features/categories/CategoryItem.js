@@ -1,12 +1,13 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 function CategoryItem({ icon, sub, label }) {
     return (
         <li>
-            <a href={`${sub}`}>
-                <img src={icon} alt={`${sub} icon`} role="presentation" />
+            <NavLink to={sub}>
+                <img src={icon} alt={`${sub} icon `} role="presentation" />
                 {label}
-            </a>
+            </NavLink>
         </li>
     );
 }

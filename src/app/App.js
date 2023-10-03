@@ -33,8 +33,6 @@ const posts = {
   "Guineapigs": guineaPosts
 }
 
-// Mock Remaining Categories
-
 // TODO: Write CSS
 
 function App() {
