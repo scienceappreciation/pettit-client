@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const postSlice = createSlice({
-    name: 'post',
+export const postsSlice = createSlice({
+    name: 'posts',
     initialState: {
         postsBySub: {}
     },
@@ -50,4 +50,4 @@ export const postSlice = createSlice({
     }
 });
 
-export const { addPost, removePost, addPosts, clearPosts, selectPosts } = postSlice.actions;
+export const { addPost, removePost, addPosts, clearPosts, selectPosts } = postsSlice.actions;
