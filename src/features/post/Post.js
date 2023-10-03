@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Post({title, body, flares, author, authorIcon, upvotes, comments, timestamp, sub}) {
+function Post({title, body, flares, author, upvotes, comments, timestamp, sub}) {
 
     function renderComments(elements) {
         let result = [];
@@ -15,7 +15,6 @@ function Post({title, body, flares, author, authorIcon, upvotes, comments, times
             <h2>{title}</h2>
             <ul className='meta-container'>
                 <li>
-                    <img src={authorIcon} alt={`${author}'s avatar`} role="presentation" />
                     <div className='sub-meta'>
                         {sub}
                         {timestamp}

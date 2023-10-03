@@ -9,7 +9,6 @@ function PostPreview() {
             </div>
             <ul className='meta-container'>
                 <li>
-                    <img src={authorIcon} alt={`${author}'s avatar`} role="presentation" />
                     {author}
                 </li>
                 <li>
