@@ -3,45 +3,55 @@ import { createSlice } from '@reduxjs/toolkit';
 export const postsSlice = createSlice({
     name: 'posts',
     initialState: {
-        postsBySub: {}
+        posts: [],
+        comments: []
     },
     reducers: {
         addPost: (state, action) => {
-            const { subreddit } = action.payload;
-            const post = action.payload;
-
+            const { post } = action.payload;
             return {
                 ...state,
-                postsBySub: {
-                    ...state.postsBySub,
-                    [subreddit]: [...state.postsBySub[subreddit], post] 
-                } 
+                posts: [...state.posts, post]
             };
         },
-        removePost: (state, action) => {
-            const { subreddit, id } = action.payload;
-
+        removePost: (state, action) => {    
+            const { post } = action.payload;
             return {
                 ...state,
-                postsBySub: {
-                    ...state.postsBySub,
-                    [subreddit]: state.postsBySub[subreddit].filter(p => p.id !== id)
-                }
+                posts: state.posts.filter(p => p.data.id !== post.data.id)
             };
         },
-        clearPosts: (state, action) => {
-            const { subreddit } = action.payload;
-
-            return { 
-                ...state, 
-                postsBySub: {
-                    ...state.postsBySub,
-                    [subreddit]: []
-                } 
+        clearPosts: (state) => {
+            return {
+                ...state,
+                posts: []
             };
         },
         selectPosts: (state) => {
-            return state.postsBySub;
+            return state.posts;
+        },
+        addComment: (state, action) => {
+            const { comment } = action.payload;
+            return {
+                ...state,
+                comments: [...state.comments, comment]
+            };
+        },
+        removeComment: (state, action) => {
+            const { id } = action.payload;
+            return {
+                ...state,
+                comments: state.comments.filter(comment => comment.data.id !== id)
+            };
+        },
+        clearComments: (state) => {
+            return {
+                ...state,
+                comments: []
+            };
+        },
+        selectComments: (state) => {
+            return state.comments
         }
     }
 });
