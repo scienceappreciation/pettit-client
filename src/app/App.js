@@ -1,9 +1,12 @@
 import React from 'react';
 
+import { Outlet } from 'react-router-dom';
+
 import './App.css';
+import './Post.css';
+
 import Header from '../features/header/Header.js';
 import CategoryList from '../features/categories/CategoryList.js';
-import PostsContainer from '../features/post/PostsContainer.js';
 import Footer from '../features/footer/Footer.js';
 
 import Listing from '../classes/Listing.js';
@@ -16,9 +19,7 @@ import dogsResponse from '../mockData/dogs_response.json';
 import fishResponse from '../mockData/fish_response.json';
 import guineaPigResponse from '../mockData/guinea_pigs_response.json';
 
-import { useParams } from 'react-router-dom';
-
-const frontPagePosts = new Listing(JSON.stringify(frontPageResponse)).posts;
+const defaultPosts = new Listing(JSON.stringify(frontPageResponse)).posts;
 const awwPosts = new Listing(JSON.stringify(awwResponse)).posts;
 const catsPosts = new Listing(JSON.stringify(catsResponse)).posts;
 const dogsPosts = new Listing(JSON.stringify(dogsResponse)).posts;
@@ -33,15 +34,17 @@ const posts = {
   "Guineapigs": guineaPosts
 }
 
+/* TODO: API Wrapper */
+/* TODO: Fix Store */
+/* TODO: Advanced Styling for Links and Images */
+
 function App() {
-  const { subreddit } = useParams();
-  
 
   return (
     <main>
       <Header />
       <CategoryList />
-      <PostsContainer posts={posts[subreddit] || frontPagePosts} />
+        <Outlet context={[posts, defaultPosts]} />
       <Footer />
     </main> 
   );

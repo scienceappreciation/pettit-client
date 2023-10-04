@@ -4,9 +4,9 @@ import './Header.css';
 
 function Header() {
     return (
-        <header className='container header'>
+        <header className='header'>
             <span className='spacer'></span>
-            <h1 className='h1'>Pettit</h1>
+            <h1 className='title'>Pettit</h1>
             <span className='spacer'></span>
             <SearchBar />
         </header>

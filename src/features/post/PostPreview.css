@@ -1,0 +1,24 @@
+.post-preview {
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.5s;
+}
+
+.post-preview .border-container {
+    overflow: hidden;
+}
+
+.post-preview .post-image {
+    margin: auto;
+    padding: 2rem;
+    max-width: 95%;
+    max-height: 600px;
+    object-fit: contain;
+    transition: background-color 0.5s;
+    border-radius: 10px;
+}
+
+.post-preview .post-image:hover {
+    background-color: #2b1d68;
+}

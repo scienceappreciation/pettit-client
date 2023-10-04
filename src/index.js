@@ -7,16 +7,17 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 
 import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from 'react-router-dom';
-import Post from './features/post/Post.js';
+import Post from './app/Post.js';
+import Feed from './app/Feed.js';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 
 const router = createBrowserRouter(createRoutesFromElements(
       <Route path="/" element={<App />}>
-        <Route path=":subreddit" element={<App />}> 
-          <Route path="post/:id" element={<Post />} />
-        </Route>
+        <Route path="/" element={<Feed />} index/>
+        <Route path=":subreddit" element={<Feed />} /> 
+        <Route path=":subreddit/post/:id" element={<Post />} />
       </Route>
   ));
 

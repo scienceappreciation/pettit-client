@@ -6,11 +6,12 @@
 
 body {
   background-color: #2A1D66;
+  color: white;
+  overflow-x: hidden;
 }
 
 .container {
   background-color: #32227A;
-  box-shadow: 6px 6px 6px black;
   border-radius: 10px;
   margin: 0.5rem 1rem;
   padding: 1rem;

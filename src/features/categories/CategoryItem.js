@@ -4,7 +4,7 @@ import './CategoryItem.css';
 
 function CategoryItem({ icon, sub, label }) {
     return (
-        <NavLink to={sub} className='container category-item'>
+        <NavLink to={sub} className='category-item'>
             <li>
                 <img src={icon} alt={`${sub} icon `} role="presentation" />
                 <span className='label'>{label}</span>
