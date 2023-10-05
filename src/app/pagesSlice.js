@@ -12,8 +12,11 @@ export const pagesSlice = createSlice({
                 ...state,
                 [identifier]: ids
             };
+        },
+        selectPages: (state) => {
+            return state;
         }
     }
 });
 
-export const { cachePageOrder } = pagesSlice.actions;
+export const { cachePageOrder, selectPages } = pagesSlice.actions;

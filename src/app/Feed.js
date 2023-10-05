@@ -1,14 +1,13 @@
 import React from 'react';
-import { useOutletContext, useParams } from 'react-router-dom';
+import { useOutletContext } from 'react-router-dom';
 
 import PostsContainer from '../features/post/PostsContainer.js';
 
 function Feed() {
-    const { subreddit } = useParams();
-    const [ posts, defaultPosts ] = useOutletContext();
+    const [ posts, subreddit ] = useOutletContext();
 
     return (<>
-    <PostsContainer posts={posts[subreddit] || defaultPosts} />
+    <PostsContainer posts={posts[subreddit]} />
     </>);
 }
 

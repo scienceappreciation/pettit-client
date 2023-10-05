@@ -1,11 +1,14 @@
-const RedditAPI = {
-    BASE_URL: "https://www.reddit.com",
-    SUB_URL: "/r/",
-    POST_BASE: "/comments/",
+import PostData from "../../classes/PostData";
+import Listing from "../../classes/Listing";
 
+const BASE_URL = "https://api.reddit.com";
+const SUB_URL = "/r/";
+const POST_BASE = "/comments/";
+
+const RedditAPI = {
     // Format is as follows for posts <BASE_URL> <SUB_URL> <SUBREDDIT> <POST_BASE> <ID>
-    buildPostDataRequest: async (subreddit, post_id) => {
-        const url = `${this.BASE_URL}${this.SUB_URL}${subreddit}${this.POST_BASE}${post_id}.json`;
+    buildPostDataRequest: (subreddit, post_id) => {
+        const url = `${BASE_URL}${SUB_URL}${subreddit}${POST_BASE}${post_id}`;
         const options = { 
             headers: {
                 "Content-Type": "application/json"
@@ -13,11 +16,11 @@ const RedditAPI = {
             method: "GET"
         };
         
-        return [url, options];
+        return {url, options};
     },
     // Format is as follows for subreddits <BASE_URL> <SUB_URL> <SUBREDDIT>
-    buildListingDataRequest: async (subreddit="") => { 
-        const url = `${this.BASE_URL}${subreddit.length ? this.SUB_URL + subreddit : ""}.json`;
+    buildListingDataRequest: (subreddit="") => { 
+        const url = `${BASE_URL}${subreddit ? SUB_URL + subreddit : ""}`;
         const options = {
             headers: {
                 "Content-Type": "application/json"
@@ -25,7 +28,7 @@ const RedditAPI = {
             method: "GET"
         };
 
-       return [url, options]
+       return { url, options };
     },
     parsePost: async (res) => {
         const json = await res.json();
@@ -37,6 +40,6 @@ const RedditAPI = {
         const data = new Listing(JSON.stringify(json));
         return data;
     }
-}
+};
 
 export default RedditAPI;

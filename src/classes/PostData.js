@@ -166,7 +166,9 @@ class PostData {
         return this.data.id;
     }
 
-
+    asObject() {
+        return {"kind": this.kind, "data": this.data }
+    }
 }
 
 export default PostData;

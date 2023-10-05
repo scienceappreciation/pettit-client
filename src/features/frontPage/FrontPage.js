@@ -10,23 +10,20 @@ import PostData from "../../classes/PostData";
 
 function FrontPage() {
     const [ currentPosts, setCurrentPosts ] = useState([]);
-    const [ rateLimited, setRateLimited ] = false;
+    const [ rateLimited, setRateLimited ] = useState(false);
 
     const dispatch = useDispatch();
-    const cache = useSelector(selectPosts);
-    const pages = useSelector(selectPages);
+    const { posts } = useSelector(selectPosts);
+    const { pages } = useSelector(selectPages);
 
 
     useEffect(() => {
-        (async () => {
-            let data = [];
-            // Check if Rate Limited
-
+        const fetchData = async () => {
             if (!rateLimited) {
-                // Make a request
-                const [url, options] = RedditAPI.buildListingDataRequest();
-                await fetch(url, options).then(async res => {
-                    // Cache Post IDs
+                const request = RedditAPI.buildListingDataRequest("");
+                alert(JSON.stringify(request));
+
+                await fetch(request.url, request.options).then(async res => {
                     const json = await res.json();
                     const listing = new Listing(JSON.stringify(json));
 
@@ -37,27 +34,31 @@ function FrontPage() {
 
                     dispatch(cachePageOrder({ identifier: "/", ids: post_ids }))
 
-                    // TEMP
                     setRateLimited(true);
-                });
+                }).catch((reason) => {
+                    console.log(reason);
+                })
             }
             
             // Retrieve IDs from Cache
-            data = pages;
+            if (!pages) return;
             
+            alert(JSON.stringify(pages));
         
             // Sort Post IDs into individual PostData objects
             const postData = [];
-            for (const id of data) {
-                const cachedPost = getPostById(cache, id);
+            for (const id of pages) {
+                const cachedPost = getPostById(posts, id);
                 postData.push(new PostData(JSON.stringify(cachedPost)));
             }
 
             // Pass Posts to PostsContainer
             setCurrentPosts(() => postData);
-        });
+        };
 
-    }, [cache]);
+        fetchData();
+
+    }, [posts, pages, dispatch, rateLimited]);
 
 
     return(

@@ -21,6 +21,10 @@ class Listing {
         }
         return posts;
     }
+
+    asObject() {
+        return { "kind": this.kind, "data": this.data };
+    }
 }
 
 export default Listing;

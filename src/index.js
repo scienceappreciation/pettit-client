@@ -9,13 +9,14 @@ import './index.css';
 import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from 'react-router-dom';
 import Post from './app/Post.js';
 import Feed from './app/Feed.js';
+import FrontPage from './features/frontPage/FrontPage.js';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 
 const router = createBrowserRouter(createRoutesFromElements(
       <Route path="/" element={<App />}>
-        <Route path="/" element={<Feed />} index/>
+        <Route path="/" element={<FrontPage />} index/>
         <Route path=":subreddit" element={<Feed />} /> 
         <Route path=":subreddit/post/:id" element={<Post />} />
       </Route>
