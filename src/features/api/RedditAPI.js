@@ -1,17 +1,13 @@
-import PostData from "../../classes/PostData";
-import Listing from "../../classes/Listing";
+// Mock Data for API
+import frontPageData from './pages/frontpage_response.json';
+import awwData from './pages/aww_response.json';
+import catsData from './pages/cats_response.json';
+import dogsData from './pages/dogs_response.json';
+import fishData from './pages/fish_response.json';
+import guineaPigsData from './pages/guinea_pigs_response.json';
+
 const BASE_URL = "https://reddit.com/";
 const SUB_URL = "/r/";
-const POST_BASE = "/comments/";
-
-
-// Mock Data for API
-import frontPageData from '../mockData/pages/frontpage_response.json';
-import awwData from '../mockData/pages/aww_response.json';
-import catsData from '../mockData/pages/cats_response.json';
-import dogsData from '../mockData/pages/dogs_response.json';
-import fishData from '../mockData/pages/fish_response.json';
-import guineaPigsData from '../mockData/guinea_pigs_response.json';
 
 const RedditAPI = {
     // Format is as follows for subreddits <BASE_URL> <SUB_URL> <SUBREDDIT>
