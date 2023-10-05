@@ -4,7 +4,6 @@ export const postsSlice = createSlice({
     name: 'posts',
     initialState: {
         posts: [],
-        comments: []
     },
     reducers: {
         addPost: (state, action) => {
@@ -29,29 +28,6 @@ export const postsSlice = createSlice({
         },
         selectPosts: (state) => {
             return state.posts;
-        },
-        addComment: (state, action) => {
-            const { comment } = action.payload;
-            return {
-                ...state,
-                comments: [...state.comments, comment]
-            };
-        },
-        removeComment: (state, action) => {
-            const { id } = action.payload;
-            return {
-                ...state,
-                comments: state.comments.filter(comment => comment.data.id !== id)
-            };
-        },
-        clearComments: (state) => {
-            return {
-                ...state,
-                comments: []
-            };
-        },
-        selectComments: (state) => {
-            return state.comments
         }
     }
 });
