@@ -1,5 +1,4 @@
 import React from 'react';
-import SearchBar from './SearchBar.js';
 import './Header.css';
 
 function Header() {
@@ -8,7 +7,6 @@ function Header() {
             <span className='spacer'></span>
             <h1 className='title'>Pettit</h1>
             <span className='spacer'></span>
-            <SearchBar />
         </header>
     );
 }
