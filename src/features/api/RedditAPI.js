@@ -6,11 +6,11 @@ const POST_BASE = "/comments/";
 
 
 // Mock Data for API
-import frontPageData from '../mockData/frontpage_response.json';
-import awwData from '../mockData/aww_response.json';
-import catsData from '../mockData/cats_response.json';
-import dogsData from '../mockData/dogs_response.json';
-import fishData from '../mockData/fish_response.json';
+import frontPageData from '../mockData/pages/frontpage_response.json';
+import awwData from '../mockData/pages/aww_response.json';
+import catsData from '../mockData/pages/cats_response.json';
+import dogsData from '../mockData/pages/dogs_response.json';
+import fishData from '../mockData/pages/fish_response.json';
 import guineaPigsData from '../mockData/guinea_pigs_response.json';
 
 const RedditAPI = {
@@ -40,12 +40,12 @@ const RedditAPI = {
     },
     parsePost: async (res) => {
         const json = await res.json();
-        const data = new PostData(JSON.stringify(json));
+        const data = new PostData(json);
         return data;
     },
     parseListing: async (res) => {
         const json = await res.json();
-        const data = new Listing(JSON.stringify(json));
+        const data = new Listing(json);
         return data;
     },
     fetchListing: (url, options) => {
@@ -112,6 +112,10 @@ const RedditAPI = {
                 }
                 case "/r/guineapigs": {
                     resolve(new Response(JSON.stringify(guineaPigsData), successful_options));
+                    break;
+                }
+                default: {
+                    reject(new Response(null, { status: 404, statusText: "Page not found." }));
                     break;
                 }
             }

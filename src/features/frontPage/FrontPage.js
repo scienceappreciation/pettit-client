@@ -30,7 +30,7 @@ function FrontPage() {
             const postData = [];
             for (const id of pages) {
                 const cachedPost = getPostById(posts, id);
-                postData.push(new PostData(JSON.stringify(cachedPost)));
+                postData.push(new PostData(cachedPost));
             }
 
             // Pass Posts to PostsContainer

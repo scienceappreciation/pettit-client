@@ -17,7 +17,7 @@ class Listing {
     get posts() {
         let posts = [];
         for (const post of this.data.children) {
-            posts.push(new PostData(JSON.stringify(post)));
+            posts.push(new PostData(post));
         }
         return posts;
     }
