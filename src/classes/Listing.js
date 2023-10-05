@@ -2,8 +2,8 @@
 import PostData from './PostData.js';
 
 class Listing {
-    constructor(json=JSON.stringify({ "kind": "Listing", "data": {} })) {
-        const listing = JSON.parse(json);
+    constructor(json) {
+        const listing = json;
         this.kind = listing.kind;
         const data = listing.data;
         this.data = {};

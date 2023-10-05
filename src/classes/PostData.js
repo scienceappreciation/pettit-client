@@ -1,8 +1,8 @@
 /* This class serves as documentation for the Reddit JSON API and may not always be used within the app. */
 
 class PostData {
-    constructor(json=JSON.stringify({ "kind": "t3", "data": {} })) {
-        const post = JSON.parse(json);
+    constructor(json) {
+        const post = json;
         const data = post.data;
 
         this.kind = post.kind || "";
