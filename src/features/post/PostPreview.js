@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom';
 
 import './PostPreview.css';
 
-function PostPreview({ title, body, author, upvotes, postId, subreddit }) {
+function PostPreview({ title, body, author, upvotes,  postSource}) {
     return (
-        <Link to={`/${subreddit}/post/${postId}`} className='post-preview'>
+        <div role="presentation" className='post-preview'>
             <article className='border-container'>
-                <h2>{title}</h2>
+                <h2>
+                    <Link to={postSource} target='_blank'>
+                        {title}
+                    </Link>
+                </h2>
                 <div>
                     {body.text}
                     {body.image_src.length > 0 ? <img className='post-image' alt={title} src={body.image_src} /> : ""}
@@ -25,7 +29,7 @@ function PostPreview({ title, body, author, upvotes, postId, subreddit }) {
                     </li>
                 </ul>
             </article>
-        </Link>
+        </div>
     );
 }
 
