@@ -16,7 +16,7 @@ const root = createRoot(container);
 const router = createBrowserRouter(createRoutesFromElements(
       <Route path="/" element={<App />}>
         <Route path="/" element={<FrontPage />} index/>
-        <Route path=":subreddit" element={<Feed />} /> 
+        <Route path="/:subreddit" element={<Feed />} index/> 
       </Route>
   ));
 

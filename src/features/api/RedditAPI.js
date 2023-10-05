@@ -32,10 +32,6 @@ const RedditAPI = {
             const valid_sub = SUB_URL_REGEX.test(url);
             const valid_format = DATA_FORMAT_REGEX.test(url);
 
-            console.log(`Valid Base: ${valid_base}`);
-            console.log(`Valid Sub: ${valid_sub}`);
-            console.log(`Valid Format: ${valid_format}`);
-
             if (!valid_base | !valid_sub | !valid_format) {
                 reject(new Response(null, 
                     {

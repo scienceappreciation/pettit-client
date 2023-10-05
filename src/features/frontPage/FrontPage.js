@@ -26,7 +26,7 @@ function FrontPage() {
 
                 // Retrieve & Handle Mock API Response
                 const { url, options } = RedditAPI.buildListingDataRequest();
-                console.log(url);
+
                 await RedditAPI.fetchListing(url, options)
                 .then(async res => {
                     const json = await res.json();
