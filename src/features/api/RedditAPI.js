@@ -14,18 +14,6 @@ import fishData from '../mockData/pages/fish_response.json';
 import guineaPigsData from '../mockData/guinea_pigs_response.json';
 
 const RedditAPI = {
-    // Format is as follows for posts <BASE_URL> <SUB_URL> <SUBREDDIT> <POST_BASE> <ID>
-    buildPostDataRequest: (subreddit, post_id) => {
-        const url = `${BASE_URL}${SUB_URL}${subreddit}${POST_BASE}${post_id}`;
-        const options = { 
-            headers: {
-                "Content-Type": "application/json"
-            },
-            method: "GET"
-        };
-        
-        return {url, options};
-    },
     // Format is as follows for subreddits <BASE_URL> <SUB_URL> <SUBREDDIT>
     buildListingDataRequest: (subreddit="") => { 
         const url = `${BASE_URL}${subreddit ? SUB_URL + subreddit : ""}`;
@@ -37,16 +25,6 @@ const RedditAPI = {
         };
 
        return { url, options };
-    },
-    parsePost: async (res) => {
-        const json = await res.json();
-        const data = new PostData(json);
-        return data;
-    },
-    parseListing: async (res) => {
-        const json = await res.json();
-        const data = new Listing(json);
-        return data;
     },
     fetchListing: (url, options) => {
         const BASE_URL_REGEX = /^https:\/\/reddit\.com/g;
