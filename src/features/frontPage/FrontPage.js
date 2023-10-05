@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PostsContainer from "../post/PostsContainer";
 import RedditAPI from "../api/RedditAPI";
 import { cachePageOrder, selectPages } from "../../app/pagesSlice";
-import { selectPosts } from "../post/postsSlice";
+import { selectPosts, addPost, clearPosts } from "../post/postsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Listing from "../../classes/Listing";
 import { getPostById } from "../../util/Cache";
@@ -13,33 +13,59 @@ function FrontPage() {
     const [ rateLimited, setRateLimited ] = useState(false);
 
     const dispatch = useDispatch();
-    const { posts } = useSelector(selectPosts);
-    const { pages } = useSelector(selectPages);
+    const { posts } = useSelector(selectPosts).payload;
+    const { pages }  = useSelector(selectPages).payload;
 
+    // TODO: Simulate Network Conditions
 
     useEffect(() => {
         const fetchData = async () => {
             if (!rateLimited) {
-                // Retrieve & Handle Mock API Response
-            }
-            
-            // Retrieve IDs from Cache
-            if (!pages) return;
-        
-            // Sort Post IDs into individual PostData objects
-            const postData = [];
-            for (const id of pages) {
-                const cachedPost = getPostById(posts, id);
-                postData.push(new PostData(cachedPost));
-            }
+                // Clear cache to avoid filling it up
+                dispatch(clearPosts());
 
-            // Pass Posts to PostsContainer
-            setCurrentPosts(() => postData);
+                // Retrieve & Handle Mock API Response
+                const { url, options } = RedditAPI.buildListingDataRequest();
+                console.log(url);
+                await RedditAPI.fetchListing(url, options)
+                .then(async res => {
+                    const json = await res.json();
+                    const listing = new Listing(json);
+                    const posts = listing.posts;
+
+                    const post_ids = [];
+
+                    for (const post of posts) {
+                        post_ids.push(post.id);
+                        dispatch(addPost({ "post": post.asObject() }));
+                    }
+
+                    dispatch(cachePageOrder({ identifier: "/", ids: post_ids }));
+
+                    setCurrentPosts(() => posts);
+                })
+                .catch(e => {
+                    console.log(e);
+                });
+            } else {
+                // Retrieve IDs from Cache
+                 if (!pages["/"].length) return;
+        
+                // Convert Post IDs into individual PostData objects
+                const postData = [];
+                for (const id of pages["/"]) {
+                    const cachedPost = getPostById(posts, id);
+                    postData.push(new PostData(cachedPost));
+                }
+
+                // Pass Posts to PostsContainer
+                 setCurrentPosts(() => postData);
+                }
         };
 
         fetchData();
 
-    }, [posts, pages, dispatch, rateLimited]);
+    }, []);
 
 
     return(

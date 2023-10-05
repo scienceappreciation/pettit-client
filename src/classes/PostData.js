@@ -167,7 +167,7 @@ class PostData {
     }
 
     get link() {
-        return `https://www.reddit.com/${this.data.subreddit_name_prefixed}comments/${this.data.id}`
+        return `https://www.reddit.com/${this.data.subreddit_name_prefixed}/comments/${this.data.id}`
     }
 
     asObject() {

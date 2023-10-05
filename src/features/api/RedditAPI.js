@@ -12,7 +12,7 @@ const SUB_URL = "/r/";
 const RedditAPI = {
     // Format is as follows for subreddits <BASE_URL> <SUB_URL> <SUBREDDIT>
     buildListingDataRequest: (subreddit="") => { 
-        const url = `${BASE_URL}${subreddit ? SUB_URL + subreddit : ""}`;
+        const url = `${BASE_URL}${subreddit ? SUB_URL + subreddit : ""}.json`;
         const options = {
             headers: {
                 "Content-Type": "application/json"
@@ -24,13 +24,17 @@ const RedditAPI = {
     },
     fetchListing: (url, options) => {
         const BASE_URL_REGEX = /^https:\/\/reddit\.com/g;
-        const SUB_URL_REGEX = /\/r\/\w*|\/(?!.)/g;
+        const SUB_URL_REGEX = /\/r\/\w+|\/(?!\/|\w)/g;
         const DATA_FORMAT_REGEX = /(?=.+)(\.json)$/g;
 
         return new Promise((resolve, reject) => {
             const valid_base = BASE_URL_REGEX.test(url);
             const valid_sub = SUB_URL_REGEX.test(url);
             const valid_format = DATA_FORMAT_REGEX.test(url);
+
+            console.log(`Valid Base: ${valid_base}`);
+            console.log(`Valid Sub: ${valid_sub}`);
+            console.log(`Valid Format: ${valid_format}`);
 
             if (!valid_base | !valid_sub | !valid_format) {
                 reject(new Response(null, 
