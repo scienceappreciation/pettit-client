@@ -1,35 +1,31 @@
 import React, { useEffect, useState } from "react";
-import PostsContainer from "../features/post/PostsContainer";
-import RedditAPI from "../features/api/RedditAPI";
+import PostsContainer from "../post/PostsContainer";
+import RedditAPI from "../api/RedditAPI";
 import { cachePageOrder, selectPages } from "./pagesSlice";
-import { selectPosts, addPost, clearPosts } from "../features/post/postsSlice";
+import { selectPosts, addPost, clearPosts } from "../post/postsSlice";
 import { useDispatch, useSelector } from "react-redux";
-import Listing from "../classes/Listing";
-import { getPostById } from "../util/Cache";
-import PostData from "../classes/PostData";
-import { useParams, Navigate } from "react-router-dom";
+import Listing from "../../classes/Listing";
+import { getPostById } from "../../util/Cache";
+import PostData from "../../classes/PostData";
 
-function Feed() {
+function FrontPage() {
     const [ currentPosts, setCurrentPosts ] = useState([]);
-    const [ notFound, setNotFound ] = useState(false);
     const [ rateLimited, setRateLimited ] = useState(false);
 
     const dispatch = useDispatch();
-    const { subreddit } = useParams();
     const { posts } = useSelector(selectPosts).payload;
     const { pages }  = useSelector(selectPages).payload;
 
     // TODO: Simulate Network Conditions
 
     useEffect(() => {
-        setNotFound(() => false);
         const fetchData = async () => {
             if (!rateLimited) {
                 // Clear cache to avoid filling it up
                 dispatch(clearPosts());
 
                 // Retrieve & Handle Mock API Response
-                const { url, options } = RedditAPI.buildListingDataRequest(subreddit);
+                const { url, options } = RedditAPI.buildListingDataRequest();
 
                 await RedditAPI.fetchListing(url, options)
                 .then(async res => {
@@ -44,22 +40,20 @@ function Feed() {
                         dispatch(addPost({ "post": post.asObject() }));
                     }
 
-                    dispatch(cachePageOrder({ identifier: subreddit, ids: post_ids }));
+                    dispatch(cachePageOrder({ identifier: "/", ids: post_ids }));
 
                     setCurrentPosts(() => posts);
                 })
-                .catch(reason => {
-                    if (reason.status === 404) {
-                        setNotFound(() => true);
-                    }
+                .catch(e => {
+                    console.log(e);
                 });
             } else {
                 // Retrieve IDs from Cache
-                 if (!pages[subreddit] || !pages[subreddit].length) return;
+                 if (!pages["/"].length) return;
         
                 // Convert Post IDs into individual PostData objects
                 const postData = [];
-                for (const id of pages[subreddit]) {
+                for (const id of pages["/"]) {
                     const cachedPost = getPostById(posts, id);
                     postData.push(new PostData(cachedPost));
                 }
@@ -71,15 +65,13 @@ function Feed() {
 
         fetchData();
 
-    }, [subreddit]);
+    }, []);
 
-    if (notFound) {
-        return <Navigate to="/404" replace={true} />
-    }
+
     return(
-    <>  
+    <>
         <PostsContainer posts={currentPosts} />
     </>);
 }
 
-export default Feed;
+export default FrontPage;

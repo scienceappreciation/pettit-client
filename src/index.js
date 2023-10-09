@@ -7,8 +7,8 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 
 import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from 'react-router-dom';
-import Feed from './app/Feed.js';
-import FrontPage from './features/frontPage/FrontPage.js';
+import Feed from './features/pages/Feed.js';
+import FrontPage from './features/pages/FrontPage.js';
 
 const container = document.getElementById('root');
 const root = createRoot(container);

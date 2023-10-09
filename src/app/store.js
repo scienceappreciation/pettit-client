@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { postsSlice } from '../features/post/postsSlice';
 import { apiSlice } from '../features/api/apiSlice';
-import { pagesSlice } from './pagesSlice';
+import { pagesSlice } from '../features/pages/pagesSlice';
 
 export const store = configureStore({
   reducer: {
