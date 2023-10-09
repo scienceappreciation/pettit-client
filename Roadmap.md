@@ -28,9 +28,6 @@ The application should be rate limited and kept to a maximum of 10 requests per 
 ### Performance
 The application should perform at a decent pace and excessive JavaScript operations per user interaction should be limited. Opt to load content the user is likely to visit first and then load content as the user visits it (i.e. when the user searches a post, you can assume the comments should be loaded, when scrolling, however, you do not know if the user is likely to comment or not so you shouldn't load them until the user goes to that post.)
 
-### Free
-In order to make sure the application stays free, as per the requirements, the application should make use of the undocumented JSON API rather than the main Data API. Given the API is undocumented, the responses and requests to the API should be mocked until proper research and frameworking is done on the API.
-
 ## Pitch
 Animal Lovers' Reddit! The client will feature content from subreddits such as r/aww or r/dogs or r/cats and should feature at least 5 different animal-related subreddits. However, other content will still be searchable, making it both convenient and usable. A clever name for this Reddit client would be "Pettit".
 
