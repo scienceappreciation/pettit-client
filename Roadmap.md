@@ -42,9 +42,6 @@ The posts should be organized almost exactly as Reddit itself organizes posts wh
 ### Animal Categories
 There should be the ability to navigate to different Animal subreddits from the main page in a quick and user-friendly fashion.
 
-### Search
-You should be able to search content on the subreddit or Reddit's front page in order to make the client usable for other Reddit activities as well.
-
 ### Easy Error Reporting
 You should be able to get a link to the GitHub issues page that uses an error reporting template to make it easy for the user to report bugs that occur.
 
