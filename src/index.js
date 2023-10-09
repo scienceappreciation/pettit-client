@@ -18,7 +18,6 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route path="/" element={<App />} errorElement={<Error />}>
         <Route path="/" element={<FrontPage />} index/>
         <Route path="/:subreddit" element={<Feed />} index/> 
-        <Route path="error" element={<Error />}/>
       </Route>
   ));
 

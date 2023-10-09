@@ -7,12 +7,13 @@ import { useDispatch, useSelector } from "react-redux";
 import Listing from "../../classes/Listing";
 import { getPostById } from "../../util/Cache";
 import PostData from "../../classes/PostData";
-import { Navigate, useOutletContext } from "react-router-dom";
+import Error from "./Error/Error";
 
 function FrontPage() {
     const [ currentPosts, setCurrentPosts ] = useState([]);
     const [ rateLimited, setRateLimited ] = useState(false);
-    const [ error, setError ] = useOutletContext();
+
+    const [ hasError, setHasError ] = useState(false);
 
     const dispatch = useDispatch();
     const { posts } = useSelector(selectPosts).payload;
@@ -21,7 +22,7 @@ function FrontPage() {
     // TODO: Simulate Network Conditions
 
     useEffect(() => {
-        setError(() => "200 OK");
+        setHasError(() => false);
 
         const fetchData = async () => {
             if (!rateLimited) {
@@ -50,7 +51,7 @@ function FrontPage() {
                 })
                 .catch(e => {
                     console.log(e);
-                    setError(() => "500 Internal Server Error");
+                    setHasError(() => true);
                 });
             } else {
                 // Retrieve IDs from Cache
@@ -72,8 +73,8 @@ function FrontPage() {
 
     }, []);
 
-    if (error.startsWith("500")) {
-        return <Navigate to="/error" replace />
+    if (hasError) {
+        return <Error error={"503 Unavailable?"}/>
     }
 
     return(

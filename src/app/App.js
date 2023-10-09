@@ -12,14 +12,12 @@ import Footer from '../features/footer/Footer.js';
 
 
 function App() {
-  // Format: Status + Message
-  const { error, setError } = useState("200 OK");
 
   return (
     <main>
       <Header />
       <CategoryList />
-        <Outlet context={[error, setError]} />
+      <Outlet />
       <Footer />
     </main> 
   );
