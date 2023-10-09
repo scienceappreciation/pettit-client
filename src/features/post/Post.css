@@ -8,18 +8,3 @@
     display: inline-block;
     margin: 0 1rem;
 }
-
-.share-button {
-    display: inline-block;
-    color: white;
-    background-color: #9500BA;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 0.5rem 1rem;
-    transition: opacity 0.5s;
-}
-
-.share-button:hover {
-    opacity: 0.85;
-}

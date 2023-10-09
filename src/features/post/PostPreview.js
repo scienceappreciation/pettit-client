@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './PostPreview.css';
+import ShareButton from '../share/ShareButton';
 
 function PostPreview({ title, body, author, upvotes,  postSource}) {
     return (
@@ -25,7 +26,7 @@ function PostPreview({ title, body, author, upvotes,  postSource}) {
                         {upvotes}
                     </li>
                     <li>
-                        <a href="#" className='share-button'>Share</a>
+                        <ShareButton url={postSource} />
                     </li>
                 </ul>
             </article>
