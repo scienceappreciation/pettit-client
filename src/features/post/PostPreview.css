@@ -12,15 +12,11 @@
 .post-preview .post-image {
     margin: auto;
     padding: 2rem;
-    max-width: 95%;
-    max-height: 600px;
+    max-width: 200px;
+    max-height: 200px;
     object-fit: contain;
     transition: background-color 0.5s;
     border-radius: 10px;
-}
-
-.post-preview .post-image:hover {
-    background-color: #2b1d68;
 }
 
 .upvote-icon {
@@ -31,10 +27,25 @@
     top: 5px;
 }
 
+.link-icon {
+    width: 20px;
+    height: 20px;
+    margin: 0 1rem;
+}
+
 .upvote-text {
     font-size: 0.85rem;
     font-weight: bold;
     text-align: center;
     vertical-align: middle;
     margin: 0 0.25rem;
+}
+
+.title-link {
+    color: white;
+    text-decoration: none;
+}
+
+.title-link:hover {
+    text-decoration: underline;
 }

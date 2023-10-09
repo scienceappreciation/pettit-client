@@ -5,14 +5,16 @@ import './PostPreview.css';
 import ShareButton from '../share/ShareButton';
 
 import upvote_icon from './upvote.png';
+import link_icon from './link_icon.png';
 
 function PostPreview({ title, body, author, upvotes,  postSource}) {
     return (
         <div role="presentation" className='post-preview'>
             <article className='border-container'>
                 <h2>
-                    <Link to={postSource} target='_blank'>
+                    <Link to={postSource} target='_blank' className='title-link'>
                         {title}
+                        <img className="link-icon" src={link_icon} alt="post link"></img>
                     </Link>
                 </h2>
                 <div>
