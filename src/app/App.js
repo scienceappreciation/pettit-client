@@ -11,10 +11,6 @@ import Footer from '../features/footer/Footer.js';
 
 
 
-/* TODO: API Wrapper */
-/* TODO: Fix Store */
-/* TODO: Advanced Styling for Links and Images */
-
 function App() {
   const { subreddit } = useParams();
 
