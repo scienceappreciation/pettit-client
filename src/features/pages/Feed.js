@@ -7,11 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 import Listing from "../../classes/Listing";
 import { getPostById } from "../../util/Cache";
 import PostData from "../../classes/PostData";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate, useOutletContext } from "react-router-dom";
 
 function Feed() {
     const [ currentPosts, setCurrentPosts ] = useState([]);
     const [ notFound, setNotFound ] = useState(false);
+    const [ error, setError ] = useOutletContext();
     const [ rateLimited, setRateLimited ] = useState(false);
 
     const dispatch = useDispatch();
@@ -74,7 +75,8 @@ function Feed() {
     }, [subreddit]);
 
     if (notFound) {
-        return <Navigate to="/404" replace={true} />
+        setError(() => "404 Not Found")
+        return <Navigate to="/error" replace/>
     }
     return(
     <>  

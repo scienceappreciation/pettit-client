@@ -12,7 +12,8 @@ import Footer from '../features/footer/Footer.js';
 
 
 function App() {
-  const { error, setError } = useState(200);
+  // Format: Status + Message
+  const { error, setError } = useState("200 OK");
 
   return (
     <main>
