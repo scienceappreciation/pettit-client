@@ -22,3 +22,19 @@
 .post-preview .post-image:hover {
     background-color: #2b1d68;
 }
+
+.upvote-icon {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    position: relative;
+    top: 5px;
+}
+
+.upvote-text {
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 0.25rem;
+}

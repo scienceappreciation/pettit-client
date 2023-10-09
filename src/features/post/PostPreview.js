@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import './PostPreview.css';
 import ShareButton from '../share/ShareButton';
 
+import upvote_icon from './upvote.png';
+
 function PostPreview({ title, body, author, upvotes,  postSource}) {
     return (
         <div role="presentation" className='post-preview'>
@@ -22,8 +24,8 @@ function PostPreview({ title, body, author, upvotes,  postSource}) {
                         {author}
                     </li>
                     <li>
-                        <img src='REPLACE-ME' alt="upvotes" />
-                        {upvotes}
+                        <img src={upvote_icon} className='upvote-icon' alt="upvotes" />
+                        <text className='upvote-text'>{upvotes}</text>
                     </li>
                     <li>
                         <ShareButton url={postSource} />
