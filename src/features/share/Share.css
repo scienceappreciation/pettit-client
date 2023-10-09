@@ -1,0 +1,46 @@
+.btn {
+    display: inline-block;
+    color: white;
+    background-color: #9500BA;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.5s;
+}
+
+.btn:hover {
+    background-color: #c700ef;
+}
+
+.btn:active {
+    background-color: white;
+}
+
+.close {
+    float: right;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.5s;
+}
+
+.close:hover {
+    background-color: red;
+}
+
+.share-container {
+    width: 95%;
+    height: auto;
+    position: fixed;
+    top: 40%;
+    left: 0;
+}
+
+#share-url {
+    background-color: #1d1347 !important;
+    color: white !important;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem;
+    width: 95%;
+}
