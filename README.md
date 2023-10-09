@@ -71,6 +71,10 @@
 
 View the [Roadmap](Roadmap.md) to see the expected features, requirements and design notes.
 
+### Disclaimer
+
+The project is a static demo and does not actually fetch data using the Reddit API. Due to recent changes in the API I was uncomfortable making it do so, however, the rest of the requirements are still intact.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
