@@ -41,3 +41,12 @@ input {
 .spacer {
     width: 15%;
 }
+
+.demo-mark {
+    background-color: #212121;
+    color: white;
+    font-weight: bold;
+    height: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+}
