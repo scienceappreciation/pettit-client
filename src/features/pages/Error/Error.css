@@ -1,0 +1,41 @@
+.error-message {
+    color: red;
+    font-family: monospace;
+    font-weight: bold;
+    text-align: center;
+}
+
+.error-icon {
+    display: block;
+    margin: auto;
+    max-width: 125px;
+    max-height: 125px;
+}
+
+.return-links {
+    text-align: center;
+    list-style-type: none;
+}
+
+.return-links li {
+    display: block;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+    transition: opacity 0.5s;
+}
+
+.return-links li a {
+    font-family: sans-serif;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+
+    background-color: #AA00CC;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+}
+
+.return-links li:hover {
+    opacity: 0.75;
+}
+
