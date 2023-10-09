@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Outlet, useParams } from 'react-router-dom';
 
@@ -12,13 +12,13 @@ import Footer from '../features/footer/Footer.js';
 
 
 function App() {
-  const { subreddit } = useParams();
+  const { error, setError } = useState(200);
 
   return (
     <main>
       <Header />
       <CategoryList />
-        <Outlet context={[subreddit]} />
+        <Outlet context={[error, setError]} />
       <Footer />
     </main> 
   );
