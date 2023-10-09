@@ -3,6 +3,7 @@
     color: white;
     text-decoration: none;
     transition: opacity 0.5s;
+    overflow-y: scroll;
 }
 
 .post-preview .border-container {
@@ -48,4 +49,11 @@
 
 .title-link:hover {
     text-decoration: underline;
+}
+
+@media only screen and (max-width: 842px) {
+    .post-preview {
+        text-align: left;
+        font-size: 0.8rem;
+    }
 }

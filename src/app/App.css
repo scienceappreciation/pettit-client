@@ -23,6 +23,8 @@ body {
   margin: 0.5rem 1rem;
   padding: 1rem;
   transition: border 0.5s;
+  height: 25%;
+  overflow-y: scroll;
 }
 
 .border-container:hover {
