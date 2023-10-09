@@ -13,6 +13,7 @@ function ShareButton({ url }) {
 
     function onShare(e) {
         setMenuShown(() => true);
+        
     }
 
     return (

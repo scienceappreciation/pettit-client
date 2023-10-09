@@ -14,12 +14,14 @@ import Footer from '../features/footer/Footer.js';
 function App() {
 
   return (
-    <main>
+    <>
       <Header />
       <CategoryList />
-      <Outlet />
+      <main id="main-content">
+        <Outlet/>
+      </main>
       <Footer />
-    </main> 
+    </> 
   );
 }
 

@@ -15,13 +15,19 @@ function ShareMenu({ url, onHidden }) {
         e.target.innerText = "Copied.";
     }
 
+    function focusTop(e) {
+        const close = document.getElementById("share-close");
+        close.focus();
+    }
+
     return (
         <div className='transparency-container' role="presentation">
             <div className='container share-container'>
-                <button onClick={onHidden} aria-label='close' className='close btn'>x</button>
+                <button onClick={onHidden} aria-label='close' className='close btn' tabIndex="1" autoFocus id="share-close">x</button>
                 <h2>Share</h2>
-                <input type="text" readOnly value={url} id="share-url"></input>
-                <button onClick={copyText} className='btn'>Copy</button>
+                <input type="text" readOnly value={url} id="share-url"tabIndex="2"></input>
+                <button onClick={copyText} className='btn' tabIndex="3">Copy</button>
+                <div role='presentation' onFocus={focusTop} tabIndex="4"></div>
             </div>
         </div>
     )

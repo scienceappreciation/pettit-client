@@ -1,10 +1,14 @@
 import React from 'react';
 import './Footer.css';
+import { Link } from 'react-router-dom';
 
 function Footer() {
     return (
         <footer className='footer'>
-            <p>2023 &copy; Cole Hale. All rights reserved.</p>
+            <p>
+                2023 &copy; Cole Hale. All rights reserved.
+                <a class="btn" href="#root">Back to Top</a>
+            </p>
         </footer>
     );
 }
