@@ -30,6 +30,22 @@
     color: white;
     font-weight: bold;
     height: 1rem;
+    min-width: 4rem;
     padding: 1rem;
     border-radius: 5px;
+}
+
+@media only screen and (max-width: 842px) {
+
+    .aria-btn {
+        display: none;
+    }
+
+    .demo-mark {
+        float: left;
+    }
+
+    .header .title {
+        float: right;
+    }
 }
