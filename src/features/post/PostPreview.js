@@ -27,7 +27,7 @@ function PostPreview({ title, body, author, upvotes,  postSource}) {
                     </li>
                     <li>
                         <img src={upvote_icon} className='upvote-icon' alt="upvotes" />
-                        <text className='upvote-text'>{upvotes}</text>
+                        <span className='upvote-text'>{upvotes}</span>
                     </li>
                     <li>
                         <ShareButton url={postSource} />

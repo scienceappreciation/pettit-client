@@ -11,12 +11,12 @@ function CategoryList(props) {
     const isPhone = useMediaQuery('only screen and (max-width: 600px)');
 
     const [ rawList, setRawList ] = useState([
-        <CategoryItem icon="https://www.redditinc.com/assets/images/site/reddit-logo.png" sub="/" label="Reddit" />,
-        <CategoryItem icon="https://styles.redditmedia.com/t5_2suml/styles/communityIcon_997ef2evx0p61.png" sub="Awww" label="r/Awww" />,
-        <CategoryItem icon="https://styles.redditmedia.com/t5_2qhhk/styles/communityIcon_n7ckf4gv4ik11.png" sub="Dogs" label="r/Dogs" />,
-        <CategoryItem icon="https://styles.redditmedia.com/t5_2qhta/styles/communityIcon_2fsd7ji8awg91.png" sub="Cats" label="r/Cats" />,
-        <CategoryItem icon="https://styles.redditmedia.com/t5_2rqn4/styles/communityIcon_3542zwgsio941.jpg?format=pjpg&s=7e7b8152340fe70435019491bf2dd4e711006efe" sub="Guineapigs" label="r/Guineapigs" />,
-        <CategoryItem icon="https://a.thumbs.redditmedia.com/4dtsZ5CTlKW7fp5qplUli0ET_3Kbu8gbsbsCsGRman0.png" sub="Fish" label="r/Fish" />
+        <CategoryItem icon="https://www.redditinc.com/assets/images/site/reddit-logo.png" key="categoryitem_1" sub="/" label="Reddit" />,
+        <CategoryItem icon="https://styles.redditmedia.com/t5_2suml/styles/communityIcon_997ef2evx0p61.png" key="categoryitem_2" sub="Awww" label="r/Awww" />,
+        <CategoryItem icon="https://styles.redditmedia.com/t5_2qhhk/styles/communityIcon_n7ckf4gv4ik11.png" key="categoryitem_3" sub="Dogs" label="r/Dogs" />,
+        <CategoryItem icon="https://styles.redditmedia.com/t5_2qhta/styles/communityIcon_2fsd7ji8awg91.png" key="categoryitem_4" sub="Cats" label="r/Cats" />,
+        <CategoryItem icon="https://styles.redditmedia.com/t5_2rqn4/styles/communityIcon_3542zwgsio941.jpg?format=pjpg&s=7e7b8152340fe70435019491bf2dd4e711006efe" key="categoryitem_5" sub="Guineapigs" label="r/Guineapigs" />,
+        <CategoryItem icon="https://a.thumbs.redditmedia.com/4dtsZ5CTlKW7fp5qplUli0ET_3Kbu8gbsbsCsGRman0.png" key="categoryitem_6" sub="Fish" label="r/Fish" />
     ]);
 
     if (props.list) {
