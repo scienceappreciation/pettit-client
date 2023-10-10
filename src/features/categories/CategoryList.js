@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useMediaQuery } from "@uidotdev/usehooks";
+
 import CategoryItem from './CategoryItem.js';
 import './CategoryList.css';
 import ArrayKit from '../../util/ArrayKit.js';
 
 function CategoryList(props) {
+
+    const isTablet = useMediaQuery('only screen and (max-width: 810px)');
+    const isPhone = useMediaQuery('only screen and (max-width: 600px)');
 
     const [ rawList, setRawList ] = useState([
         <CategoryItem icon="https://www.redditinc.com/assets/images/site/reddit-logo.png" sub="/" label="Reddit" />,
@@ -22,17 +27,30 @@ function CategoryList(props) {
 
     const [ index, setIndex ] = useState(0);
 
+    const [ displayAmount, setDisplayAmount ] = useState(6);
+    const [ buttonsVisible, setButtonsVisible ] = useState(true);
+
     useEffect(() => {
-        // Select the first two elements at index
-        const list_slice = [
-            rawList[index],
-            rawList[ArrayKit.wrap(index, 1, rawList.length)]
-        ];
+        if (isPhone) {
+            setDisplayAmount(() => 2);
+        } else if (isTablet) {
+            setDisplayAmount(() => 4)
+        } else {
+            setDisplayAmount(() => 6);
+        }
+
+        const list_slice = ArrayKit.wrappedSlice(rawList, index, index + (displayAmount - 1));
+
+        if (list_slice.length >= rawList.length) {
+            setButtonsVisible(() => false)
+        } else {
+            setButtonsVisible(() => true);
+        }
 
         // Override them in the displayList
         setDisplayList(() => list_slice);
 
-    }, [rawList, index])
+    }, [rawList, index, displayAmount, isPhone, isTablet])
 
     function onLeft(e) {
         setIndex((prev) => ArrayKit.wrap(prev, -1, rawList.length));
@@ -44,9 +62,9 @@ function CategoryList(props) {
 
     return (
         <nav className='container category-list'>
-            <button className='left-btn' onClick={onLeft}>&lt;</button>
+            {buttonsVisible && <button className='btn' onClick={onLeft}>&lt;</button> }
             { displayList }
-            <button className='right-btn' onClick={onRight}>&gt;</button>
+            {buttonsVisible && <button className='btn' onClick={onRight}>&gt;</button>}
         </nav>
     );
 }

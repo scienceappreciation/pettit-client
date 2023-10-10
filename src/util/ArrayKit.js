@@ -7,6 +7,18 @@ const ArrayKit = {
         } else {
             return index + value;
         }
+    },
+    wrappedSlice: (arr, start, end) => {
+        let resultArray = [];
+
+
+        for (let i = start; i <= end; i++) {
+            resultArray.push(arr[(start + i) % arr.length]);
+        }
+
+        return resultArray;
+
+
     }
 };
 
