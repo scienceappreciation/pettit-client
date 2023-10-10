@@ -7,7 +7,7 @@ function Footer() {
         <footer className='footer'>
             <p>
                 2023 &copy; Cole Hale. All rights reserved.
-                <a class="btn" href="#root">Back to Top</a>
+                <a className="btn" href="#root">Back to Top</a>
             </p>
         </footer>
     );
