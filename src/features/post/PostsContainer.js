@@ -1,6 +1,8 @@
 import React from 'react';
 import PostPreview from './PostPreview.js';
 
+import RedditAPI from '../api/RedditAPI.js';
+
 function PostsContainer({ posts }) {
     function renderPosts() {
         if (!posts.length) return false;

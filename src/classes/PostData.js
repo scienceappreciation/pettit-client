@@ -157,7 +157,7 @@ class PostData {
 
     get content() {
         return {
-          text: this.data.selftext_html || "",
+          text: this.data.selftext || "",
           image_src: this.data.url || ""
         };
     }

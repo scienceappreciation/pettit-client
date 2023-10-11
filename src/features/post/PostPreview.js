@@ -6,8 +6,23 @@ import ShareButton from '../share/ShareButton';
 
 import upvote_icon from './upvote.png';
 import link_icon from './link_icon.png';
+import RedditAPI from '../api/RedditAPI';
 
 function PostPreview({ title, body, author, upvotes,  postSource}) {
+    function renderContent() {
+        const elements = [];
+        RedditAPI.parseMarkdown(body.text, content => {
+            elements.push(content);
+        });
+
+        if (body.image_src.length > 0) {
+            elements.push(<img className='post-image' alt={title} src={body.image_src} />);
+        }
+
+        return elements;
+    }
+
+
     return (
         <div role="presentation" className='post-preview'>
             <article className='border-container'>
@@ -18,8 +33,7 @@ function PostPreview({ title, body, author, upvotes,  postSource}) {
                     </Link>
                 </h2>
                 <div>
-                    {body.text}
-                    {body.image_src.length > 0 ? <img className='post-image' alt={title} src={body.image_src} /> : ""}
+                    {renderContent()}
                 </div>
                 <ul className='meta-container'>
                     <li>

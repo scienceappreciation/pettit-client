@@ -6,6 +6,9 @@ import dogsData from './pages/dogs_response.json';
 import fishData from './pages/fish_response.json';
 import guineaPigsData from './pages/guinea_pigs_response.json';
 
+import DOMPurify from 'isomorphic-dompurify';
+import { parse } from 'marked';
+
 const BASE_URL = "https://reddit.com/";
 const SUB_URL = "/r/";
 
@@ -94,6 +97,18 @@ const RedditAPI = {
                 }
             }
         });
+    },
+    parseMarkdown: (content, next) => {
+        
+        // Parse as Markdown
+        const body = DOMPurify.sanitize(parse(content));
+
+        // Create div to pass into callback 
+        const element = <div className='text-content' dangerouslySetInnerHTML={{__html: body}}>
+        </div>; 
+
+        // Callback
+        next(element);
     }
 };
 
