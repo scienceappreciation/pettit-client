@@ -9,7 +9,7 @@ function PostsContainer({ posts }) {
 
         let result = [];
         posts.forEach((post, index) => {
-            result.push(<PostPreview key={`post_${index}`} title={post.title} body={post.content} author={post.author} upvotes={post.upvotes} postSource={post.link}/>)
+            result.push(<PostPreview key={`post_${index}`} title={post.title} body={post.content} author={post.author} upvotes={post.upvotes} hint={post.hint} postSource={post.link}/>)
         });
         return result;
     }

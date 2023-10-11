@@ -8,15 +8,19 @@ import upvote_icon from './upvote.png';
 import link_icon from './link_icon.png';
 import RedditAPI from '../api/RedditAPI';
 
-function PostPreview({ title, body, author, upvotes,  postSource}) {
+function PostPreview({ title, body, author, hint, upvotes,  postSource}) {
     function renderContent() {
         const elements = [];
+
         RedditAPI.parseMarkdown(body.text, content => {
             elements.push(content);
         });
 
+
         if (body.image_src.length > 0) {
-            elements.push(<img className='post-image' alt={title} src={body.image_src} />);
+            if (hint === 'image') {
+                elements.push(<img className='post-image' alt={title} src={body.image_src} />);
+            }
         }
 
         return elements;

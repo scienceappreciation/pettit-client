@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+a {
+  color: white;
+}
+
 @media only screen and (max-width: 428) {
     body {
       font-size: 14px;

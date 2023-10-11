@@ -155,6 +155,10 @@ class PostData {
         return this.data.title;
     }
 
+    get hint() {
+        return this.data.post_hint;
+    }
+
     get content() {
         return {
           text: this.data.selftext || "",
