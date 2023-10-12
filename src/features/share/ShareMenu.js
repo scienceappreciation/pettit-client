@@ -22,7 +22,7 @@ function ShareMenu({ url, onHidden }) {
 
     return (
         <div className='transparency-container' role="presentation">
-            <div className='container share-container'>
+            <div className='container share-container' role="menu" aria-label='Share'>
                 <button onClick={onHidden} aria-label='close' className='close btn' tabIndex="1" autoFocus id="share-close">x</button>
                 <h2>Share</h2>
                 <input type="text" readOnly value={url} id="share-url"tabIndex="2"></input>

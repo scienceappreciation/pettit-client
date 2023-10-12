@@ -6,7 +6,7 @@ import './Error.css';
 
 
 function Error(props) {
-    const [ currentError, setError ] = useState();
+    const [ currentError, setError ] = useState("");
 
     /* eslint-disable react-hooks/exhaustive-deps */
     /* Reason: Exhaustive dependencies cause the app to crash due to an infinite loop. */
