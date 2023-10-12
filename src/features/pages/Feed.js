@@ -11,18 +11,22 @@ import { useParams } from "react-router-dom";
 
 import Error from "./Error/Error";
 
-function Feed() {
+function Feed(props) {
     const [ currentPosts, setCurrentPosts ] = useState([]);
     const [ notFound, setNotFound ] = useState(false);
     const [ rateLimited, setRateLimited ] = useState(false);
+
+    if (props.limited) {
+        setRateLimited(() => true);
+    }
 
     const dispatch = useDispatch();
     const { subreddit } = useParams();
     const { posts } = useSelector(selectPosts).payload;
     const { pages }  = useSelector(selectPages).payload;
 
-    // TODO: Simulate Network Conditions
-
+    /* eslint-disable react-hooks/exhaustive-deps */
+    /* Reason: Exhaustive dependencies cause the app to crash due to an infinite loop. */
     useEffect(() => {
         setNotFound(() => false);
         const fetchData = async () => {

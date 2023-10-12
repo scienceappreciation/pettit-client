@@ -19,7 +19,7 @@ function PostPreview({ title, body, author, hint, upvotes,  postSource}) {
 
         if (body.image_src.length > 0) {
             if (hint === 'image') {
-                elements.push(<img className='post-image' alt={title} src={body.image_src} />);
+                elements.push(<img className='post-image' key={`${postSource}_image`} alt={title} src={body.image_src} />);
             }
         }
 

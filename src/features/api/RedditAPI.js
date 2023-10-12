@@ -8,6 +8,7 @@ import guineaPigsData from './pages/guinea_pigs_response.json';
 
 import DOMPurify from 'isomorphic-dompurify';
 import { parse } from 'marked';
+import { v4 as uuidv4 } from 'uuid';
 
 const BASE_URL = "https://reddit.com/";
 const SUB_URL = "/r/";
@@ -104,7 +105,7 @@ const RedditAPI = {
         const body = DOMPurify.sanitize(parse(content));
 
         // Create div to pass into callback 
-        const element = <div className='text-content' dangerouslySetInnerHTML={{__html: body}}>
+        const element = <div className='text-content' key={uuidv4()} dangerouslySetInnerHTML={{__html: body}}>
         </div>; 
 
         // Callback

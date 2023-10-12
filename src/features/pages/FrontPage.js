@@ -9,9 +9,14 @@ import { getPostById } from "../../util/Cache";
 import PostData from "../../classes/PostData";
 import Error from "./Error/Error";
 
-function FrontPage() {
+function FrontPage(props) {
     const [ currentPosts, setCurrentPosts ] = useState([]);
     const [ rateLimited, setRateLimited ] = useState(false);
+
+    if (props.limited) {
+        setRateLimited(() => true);
+    }
+
 
     const [ hasError, setHasError ] = useState(false);
 
@@ -19,8 +24,8 @@ function FrontPage() {
     const { posts } = useSelector(selectPosts).payload;
     const { pages }  = useSelector(selectPages).payload;
 
-    // TODO: Simulate Network Conditions
-
+    /* eslint-disable react-hooks/exhaustive-deps */
+    /* Reason: Exhaustive dependencies cause the app to crash due to an infinite loop. */
     useEffect(() => {
         setHasError(() => false);
 

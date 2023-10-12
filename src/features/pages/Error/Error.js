@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useOutletContext, Link, useRouteError } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import error_icon from './error.svg';
 import './Error.css';
@@ -8,6 +8,8 @@ import './Error.css';
 function Error(props) {
     const [ currentError, setError ] = useState();
 
+    /* eslint-disable react-hooks/exhaustive-deps */
+    /* Reason: Exhaustive dependencies cause the app to crash due to an infinite loop. */
     useEffect(() => {
         if (!props["error"]) {
             setError(() => "404 Not Found")
